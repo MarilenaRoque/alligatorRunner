@@ -1,0 +1,17 @@
+{
+  "name": "alligatorRunner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MarilenaRoque/alligatorRunner.git",
+  "author": "MarilenaRoque <marilenas@id.uff.br>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "phaser": "^3.0.0"
+  }
+}
