@@ -16,7 +16,8 @@
     "phaser": "^3.0.0"
   },
   "scripts": {
-    "start": "es-dev-server --app-index index.html --node-resolve --watch --open"
+    "start": "es-dev-server --app-index index.html --node-resolve --watch",
+    "watch": "webpack --watch"
   }
 
 }
