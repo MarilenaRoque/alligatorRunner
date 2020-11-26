@@ -9,7 +9,8 @@
     "babel-core": "6",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.7.0",
-    "webpack": "^3.0.0"
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.0.0"
   },
   "dependencies": {
     "phaser": "^3.0.0"

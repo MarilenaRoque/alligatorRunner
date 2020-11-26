@@ -1,4 +1,4 @@
-const path = require('path');
+var path = require('path');
 
 module.exports = {
   entry: {
@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src/'),
+        include: path.resolve(__dirname, 'src'),
         use: {
           loader: 'babel-loader',
           options: {
@@ -23,5 +23,9 @@ module.exports = {
         }
       }
     ]
+  },
+
+  devServer: {
+    contentBase: path.resolve(__dirname, 'build'),
   }
-}
+};
