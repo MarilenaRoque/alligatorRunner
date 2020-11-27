@@ -20,7 +20,7 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('platform', 'assets/platform.png');
     this.load.spritesheet("player", "assets/player.png", {
         frameWidth: 50,
-        frameHeight: 66
+        frameHeight: 77
     });
   }
 
@@ -30,10 +30,20 @@ export default class GameScene extends Phaser.Scene {
         //Creating animations
         this.anims.create({
             key: 'run',
-            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 4 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 1, end: 4 }),
             frameRate: 10,
             repeat: -1
         });
+
+        this.anims.create({
+            key: 'jump',
+            frames: [ { key: 'player', frame: 0 } ],
+            frameRate: 20
+        });
+
+
+        
+
  
         // group with all active platforms.
         this.platformGroup = this.add.group({
@@ -66,7 +76,11 @@ export default class GameScene extends Phaser.Scene {
         
 
         // setting collisions between the player and the platform group
-        this.physics.add.collider(this.player, this.platformGroup);
+        this.physics.add.collider(this.player, this.platformGroup, () => {
+            if(!this.player.anims.isPlaying){
+                this.player.anims.play("run");
+            }
+        });
 
         // checking for input
         this.input.on("pointerdown", this.jump, this);
@@ -98,9 +112,11 @@ export default class GameScene extends Phaser.Scene {
             if(this.player.body.touching.down){
                 this.playerJumps = 0;
             }
+            this.player.anims.play('jump')
             this.player.setVelocityY(gameOptions.jumpForce * -1);
             this.playerJumps ++;
         }
+        
     }
 
 
@@ -129,10 +145,6 @@ export default class GameScene extends Phaser.Scene {
             this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2);
         }
 
-        if(!this.player.body.touching.down)
-        {
-            this.player.anims.play('run')
-        }
 
     }
 };
