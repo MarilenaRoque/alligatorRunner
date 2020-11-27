@@ -9,6 +9,8 @@ let gameOptions = {
   playerStartPosition: 200,
   jumps: 2
 }
+
+
  
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -17,6 +19,7 @@ export default class GameScene extends Phaser.Scene {
  
   preload () {
     // load images
+    this.load.image('background', 'assets/background.png');
     this.load.image('platform', 'assets/platform.png');
     this.load.spritesheet("player", "assets/player.png", {
         frameWidth: 50,
@@ -25,6 +28,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create(){
+
+    this.add.image(400, 300, 'background');
 
 
         //Creating animations
@@ -41,11 +46,9 @@ export default class GameScene extends Phaser.Scene {
             frameRate: 20
         });
 
-
-        
-
  
-        // group with all active platforms.
+                        ///Platform Group and Pool//
+
         this.platformGroup = this.add.group({
 
             // once a platform is removed, it's added to the pool
@@ -54,7 +57,6 @@ export default class GameScene extends Phaser.Scene {
             }
         });
 
-        // pool
         this.platformPool = this.add.group({
 
             // once a platform is removed from the pool, it's added to the active platforms group
@@ -62,6 +64,9 @@ export default class GameScene extends Phaser.Scene {
                 platform.scene.platformGroup.add(platform)
             }
         });
+
+
+
 
         // number of consecutive jumps made by the player
         this.playerJumps = 0;
