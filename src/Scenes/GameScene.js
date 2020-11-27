@@ -21,6 +21,7 @@ export default class GameScene extends Phaser.Scene {
     // load images
     this.load.image('background', 'assets/background.png');
     this.load.image('platform', 'assets/platform.png');
+    this.load.image('coin', 'assets/coin.png');
     this.load.spritesheet("player", "assets/player.png", {
         frameWidth: 50,
         frameHeight: 77
@@ -64,6 +65,34 @@ export default class GameScene extends Phaser.Scene {
                 platform.scene.platformGroup.add(platform)
             }
         });
+
+
+
+        //COIN GROUP AND POOL //
+
+        this.coinGroup = this.add.group({
+            key: 'coin',
+            repeat: 5,
+            setXY: {
+                x: 12,
+                y: 250,
+                stepX: 70
+            },
+
+            // once a coin is removed, it's added to the pool
+            removeCallback: function(coin){
+                coin.scene.coinPool.add(coin)
+            }
+        });
+
+        this.coinPool = this.add.group({
+            
+            // once a coin is removed from the pool, it's added to the active coins group
+            removeCallback: function(platform){
+                coin.scene.coinGroup.add(coin)
+            }
+        });
+
 
 
 
