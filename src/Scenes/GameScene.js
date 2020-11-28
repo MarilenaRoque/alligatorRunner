@@ -71,13 +71,6 @@ export default class GameScene extends Phaser.Scene {
         //COIN GROUP AND POOL //
 
         this.coinGroup = this.add.group({
-            key: 'coin',
-            repeat: 5,
-            setXY: {
-                x: 12,
-                y: 250,
-                stepX: 70
-            },
 
             // once a coin is removed, it's added to the pool
             removeCallback: function(coin){
@@ -88,12 +81,10 @@ export default class GameScene extends Phaser.Scene {
         this.coinPool = this.add.group({
             
             // once a coin is removed from the pool, it's added to the active coins group
-            removeCallback: function(platform){
+            removeCallback: function(coin){
                 coin.scene.coinGroup.add(coin)
             }
         });
-
-
 
 
 
@@ -118,9 +109,28 @@ export default class GameScene extends Phaser.Scene {
 
         // checking for input
         this.input.on("pointerdown", this.jump, this);
+        
     }
 
     // the core of the script: platform are added from the pool or created on the fly
+
+
+    addCoin(posX) {
+        let coin;
+        if(this.coinPool.getLength()){
+            coin = this.coinPool.getFirst();
+            coin.x = posX;
+            coin.active = true;
+            coin.visible = true;
+            this.coinPool.remove(coin);
+        }
+        else {
+            coin = this.physics.add.image(posX, game.config.height * 0.7, 'coin');
+            coin.setVelocityX(gameOptions.platformStartSpeed * -1);
+            this.coinGroup.add(coin);
+        }
+    }
+
     addPlatform(platformWidth, posX){
         let platform;
         if(this.platformPool.getLength()){
@@ -138,6 +148,10 @@ export default class GameScene extends Phaser.Scene {
         }
         platform.displayWidth = platformWidth;
         this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
+        var coinAppear = Phaser.Math.Between(0,10);
+        if (coinAppear > 5) {
+            this.addCoin(posX);
+        }
     }
 
     // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
@@ -172,6 +186,14 @@ export default class GameScene extends Phaser.Scene {
                 this.platformGroup.remove(platform);
             }
         }, this);
+
+        //recycling coins
+        this.coinGroup.getChildren().forEach((coin) => {
+            if(coin.x < - 20){
+                this.coinGroup.killAndHide(coin);
+                this.coinGroup.remove(coin);
+            }
+        },this)
 
         // adding new platforms
         if(minDistance > this.nextPlatformDistance){
