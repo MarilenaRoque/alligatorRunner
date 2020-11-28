@@ -87,7 +87,6 @@ export default class GameScene extends Phaser.Scene {
         });
 
 
-
         // number of consecutive jumps made by the player
         this.playerJumps = 0;
 
@@ -106,6 +105,11 @@ export default class GameScene extends Phaser.Scene {
                 this.player.anims.play("run");
             }
         });
+
+        this.physics.add.overlap(this.player, this.coinGroup, function(player, coin){
+            this.coinGroup.killAndHide(coin);
+            this.coinGroup.remove(coin);
+        }, null, this);
 
         // checking for input
         this.input.on("pointerdown", this.jump, this);
@@ -166,6 +170,7 @@ export default class GameScene extends Phaser.Scene {
         }
         
     }
+
 
 
     update(){
