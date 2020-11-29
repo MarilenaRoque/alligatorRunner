@@ -1,5 +1,6 @@
 import 'phaser';
 import Button from '../Objects/Button';
+import config from '../Config/config';
 
 export default class OptionsScene extends Phaser.Scene {
   constructor () {
@@ -7,7 +8,8 @@ export default class OptionsScene extends Phaser.Scene {
   }
 
   create() {
-    this.menuButton = new Button(this, 400, 500, 'blueButton1', 'blueButton2', 'Play Again', 'Game');
+    this.playButton = new Button(this, config.width/2, config.height/2 + 190, 'blueButton1', 'blueButton2', 'Play Again', 'Game');
+    this.menuButton = new Button(this, config.width/2, config.height/2 + 250, 'blueButton1', 'blueButton2', 'Menu', 'Title');
   }
 }
 
