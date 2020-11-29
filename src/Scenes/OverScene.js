@@ -8,8 +8,8 @@ export default class OptionsScene extends Phaser.Scene {
   }
 
   create() {
-    this.playButton = new Button(this, config.width/2, config.height/2 + 190, 'blueButton1', 'blueButton2', 'Play Again', 'Game');
-    this.menuButton = new Button(this, config.width/2, config.height/2 + 250, 'blueButton1', 'blueButton2', 'Menu', 'Title');
+    this.playButton = new Button(this, config.width/2, config.height/2, 'blueButton1', 'blueButton2', 'Play Again', 'Game');
+    this.menuButton = new Button(this, config.width/2, 250, 'blueButton1', 'blueButton2', 'Menu', 'Title');
   }
 }
 

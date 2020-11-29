@@ -1,0 +1,3 @@
+const leaderboard = (() => {
+    return{}
+})();
