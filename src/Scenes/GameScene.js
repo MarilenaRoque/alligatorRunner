@@ -11,6 +11,8 @@ let gameOptions = {
 }
 
 
+
+
  
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -31,7 +33,8 @@ export default class GameScene extends Phaser.Scene {
   create(){
 
     this.add.image(400, 300, 'background');
-
+        this.score = 0;
+    
 
         //Creating animations
         this.anims.create({
@@ -106,15 +109,25 @@ export default class GameScene extends Phaser.Scene {
             }
         });
 
-        this.physics.add.overlap(this.player, this.coinGroup, function(player, coin){
-            this.coinGroup.killAndHide(coin);
-            this.coinGroup.remove(coin);
-        }, null, this);
+        this.physics.add.overlap(this.player, this.coinGroup, this.collectStar , null, this);
 
         // checking for input
         this.input.on("pointerdown", this.jump, this);
         this.input.keyboard.on('keydown-' + 'SPACE', this.jump, this);
+
+        //Creating display for Scores
+        this.scoreText = this.add.text(16, 16, 'score: 0', {
+            fontSize: '32px',
+            fill: '#000'
+        });
         
+    }
+
+    collectStar(player, coin){
+            this.coinGroup.killAndHide(coin);
+            this.coinGroup.remove(coin);
+            this.score += 10;
+            this.scoreText.setText("Score: " + this.score);
     }
 
     // the core of the script: platform are added from the pool or created on the fly
