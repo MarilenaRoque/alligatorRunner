@@ -7,5 +7,9 @@ export default {
   height: 600,
   physics: {
     default: "arcade"
+  },
+  parent: 'myBody',
+  dom: {
+      createContainer: true
   }
 };
