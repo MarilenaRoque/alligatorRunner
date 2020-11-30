@@ -20,27 +20,8 @@ const leaderboard = (() => {
 
     }
 
-    const getInfo = () => {
-        let promiseRefreshScore = fetch(url, {
-            mode: 'cors'
-        })
-        promiseRefreshScore.then( function (response) {
-            return response.json();
-        }).then(function(response) {
-            let sorted = response.result.sort((a, b) => {
-                if (a.score < b.score) {
-                  return 1;
-                }
-                if (a.score > b.score) {
-                  return -1;
-                }
-                return 0;
-              });
-              console.log(sorted);
-            return sorted;
-        })
-    }
-    return{ addScore, getInfo}
+
+    return{ addScore}
 })();
 
 export default leaderboard;
