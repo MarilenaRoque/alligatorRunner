@@ -14,10 +14,10 @@ const leaderboard = (() => {
             method: 'POST',
             body: body
         })
-        promiseAddScore.then( function (response) {
+        let jsonData = promiseAddScore.then( function (response) {
             return response.json();
-        })
-
+        });
+        return jsonData
     }
 
 

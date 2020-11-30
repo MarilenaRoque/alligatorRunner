@@ -22,8 +22,10 @@ export default class SubmitScore extends Phaser.Scene {
         let test = document.createElement('h4');
         name = document.getElementById('name').value;
         if (name.length >= 5) {
-            leaderboard.addScore(name, this.score);
-            this.scene.start('Over');
+            let result = leaderboard.addScore(name, this.score);
+            result.then((data) => {
+              this.scene.start('Over');
+            });
         } else {
             test.innerText = 'Name is too short';
             let textTest = this.add.dom(400, 220, test);
