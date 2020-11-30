@@ -1,4 +1,6 @@
 let url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/SltkTgE89OcOt0kPoJmn/scores/`
+const fetch = require('node-fetch');
+
 
 const leaderboard = (() => {
     const addScore = (name, score) => {
@@ -17,7 +19,7 @@ const leaderboard = (() => {
         let jsonData = promiseAddScore.then( function (response) {
             return response.json();
         });
-        return jsonData
+        return promiseAddScore;
     }
 
 
