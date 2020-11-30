@@ -1,7 +1,11 @@
 import 'phaser';
-import config from '../Config/config';
+import leaderboard from '../leaderboard';
 
 export default class SubmitScore extends Phaser.Scene {
+    init(data){
+        this.score = data;
+    }
+
   constructor () {
     super('Submit');
   }
@@ -18,6 +22,7 @@ export default class SubmitScore extends Phaser.Scene {
         let test = document.createElement('h4');
         name = document.getElementById('name').value;
         if (name.length >= 5) {
+            leaderboard.addScore(name, this.score);
             this.scene.start('Over');
         } else {
             test.innerText = 'Name is too short';
