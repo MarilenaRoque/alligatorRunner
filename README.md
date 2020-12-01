@@ -1,10 +1,10 @@
 <h1 align="center">Alligator Runner</h1>
 
 
-> This is a RPG game developed with Phaser library. 
-> At this game the main character has to jump trough platforms collecting as many coins as possible.
-> For each coin collected the player increase his/her score.
-> At the end of the game, the user can submit his/her score and a leaderboard is displayed, with the top 6 scores.
+> This is an RPG game developed with Phaser library. 
+> At this game the main character has to jump through platforms collecting as many coins as possible.
+> For each coin collected the player increases his/her score.
+> In the end of the game, the user can submit his/her score and a leaderboard is displayed, with the top 6 scores.
 
 
 
@@ -31,26 +31,26 @@
 ### Menu
 
 
-> Menu Scene - Where you can navigate trough the options: Play, Options, Instructions and Credits
+> Menu Scene - Where you can navigate through the options: Play, Options, Instructions, and Credits
 
 ![Screenshot](./assets/menu.png)
 
 
 ### Game Scene
 
-> Game Scene - Where the game actually starts. Platforms of differents sizes are generated and also randon amonts of coins. User is able to make the character jump trough the platforms using the 'SPACE' key or clicking with the left mouse button. Character is allowed to double jump, but no more than two jumps are allowed. Everytime the character collect a coin (overlaping the coin) the Scoreis increased in 10 units and that should be displayed.
+> Game Scene - Where the game actually starts. Platforms of different sizes are generated and also random amounts of coins. The user is able to make the character jump through the platforms using the 'SPACE' key or clicking with the left mouse button. Character is allowed to double jump, but no more than two jumps are allowed. Every time the character collects a coin (overlapping the coin) the Score is increased by 10 units and that should be displayed.
 
 ![Screenshot](./assets/game.png)
 
 ### Submit
 
-> Submit Scene - When the character finally falls the submit scene is generated. Where the user can submit his score. This Scene has a text box where the user should enter with a username. User should press enter and wait for the submission. 
+> Submit Scene - When the character finally falls the "Submit Scene" is generated. Where the user can submit his score. This Scene has a text box where the user should enter with a username. The user should press enter and wait for the submission. 
 
 ![Screenshot](./assets/submit.png)
 
 ### Leaderboard
 
-> Leaderboard Scene - After the score submission a leaderboard is displayed and if the last submission is at the top 6, it should be included. This scene contains 2 buttons where the user can choose between play again and came back to main Menu.
+> Leaderboard Scene - After the score submission a leaderboard is displayed and if the last submission is at the top 6, it should be included. This scene contains 2 buttons where the user can choose between play again and come back to the main Menu.
 
 ![Screenshot](./assets/leaderboard.png)
 
@@ -62,7 +62,7 @@
 
 ### Credits
 
-> Credits - The scene to acknowledge the developer responsable for the game code.
+> Credits - The scene to acknowledge the developer responsible for the game development.
 
 ![Screenshot](./assets/credits.png)
 
@@ -77,8 +77,8 @@
 
 ## Prerequisites
 
-- Using NPM package and JavaScript knoledge to build and test the game.
-- You should install Node.js to use the run the server with the dependency used. If you don't have Node you can follow this tutorial to set it on your local machine: [HERE](https://www.w3schools.com/nodejs/default.asp)
+- Using NPM package and JavaScript knowledge to build and test the game.
+- You should install Node.js to run the server with the dependency used. If you don't have Node you can follow this tutorial to set it on your local machine: [HERE](https://www.w3schools.com/nodejs/default.asp)
 
 
 ## Getting Started
@@ -92,11 +92,11 @@ To get a local copy of this project running follow these simple steps.
 > `npm install`
 - Use your favorite browser to open the index.html file (located at the dist page)
 
-- If you have node.js installed and all the dependencies were installed successfully, you can run the following comand to start the server where the project will run.
+- If you have node.js installed and all the dependencies were installed successfully, you can run the following command to start the server where the project will run.
 
 > `yarn start`
 
-- Open your the following path using your favorite browser.
+- Open the following path using your favorite browser.
 
 > `http://localhost:8000/`
 

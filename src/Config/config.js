@@ -6,10 +6,10 @@ export default {
   width: 800,
   height: 600,
   physics: {
-    default: "arcade"
+    default: 'arcade',
   },
   parent: 'myBody',
   dom: {
-      createContainer: true
-  }
+    createContainer: true,
+  },
 };
