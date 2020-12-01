@@ -18,6 +18,7 @@
     "phaser": "^3.0.0"
   },
   "scripts": {
+    "build": "webpack",
     "start": "es-dev-server --app-index index.html --node-resolve --watch",
     "watch": "webpack --watch",
     "test": "jest",
