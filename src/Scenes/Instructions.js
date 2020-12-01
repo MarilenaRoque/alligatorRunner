@@ -7,7 +7,6 @@ const line3 = 'Alligator Boy is allowed to double jump and his';
 const line4 = 'main goal is collect as much coins as possible';
 const line5 = 'without falling to the platform.';
 
-const instructions = " Use the 'SPACE' key in your keyboardwith left button to make the Alligator Boy jump. Alligator Boy is allowed to double jump and his main goal is collect as much coins as possible but without falling to the platform";
 
 export default class InstructionsScene extends Phaser.Scene {
   constructor() {
