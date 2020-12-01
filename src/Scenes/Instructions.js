@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import Button from '../Objects/Button';
 
 const line1 = " Use the 'SPACE' key in your keyboard or click ";

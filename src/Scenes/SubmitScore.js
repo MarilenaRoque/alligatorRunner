@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import leaderboard from '../leaderboard';
 
 export default class SubmitScore extends Phaser.Scene {
@@ -30,7 +30,7 @@ export default class SubmitScore extends Phaser.Scene {
         });
       } else {
         test.innerText = 'Name is too short';
-        const textTest = this.add.dom(400, 110, test);
+        this.add.dom(400, 110, test);
       }
     };
 
@@ -40,12 +40,12 @@ export default class SubmitScore extends Phaser.Scene {
     const inputText = document.createElement('input');
     inputText.type = 'text';
     inputText.id = 'name';
-    const inputEl = this.add.dom(400, 400, inputText);
+    this.add.dom(400, 400, inputText);
 
     const text = document.createElement('h2');
     text.innerText = 'Provide your Username press Enter and Wait to Submit';
     text.id = 'text';
-    const domElement = this.add.dom(400, 520, text);
-    this.input.keyboard.on('keydown-' + 'ENTER', submitInfo, this);
+    this.add.dom(400, 520, text);
+    this.input.keyboard.on('keydown-ENTER', submitInfo, this);
   }
 }
