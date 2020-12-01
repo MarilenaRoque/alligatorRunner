@@ -89,10 +89,10 @@ export default class GameScene extends Phaser.Scene {
     this.playerJumps = 0;
 
     // adding a platform to the game, the arguments are platform width and x position
-    this.addPlatform(game.config.width, game.config.width / 2);
+    this.addPlatform(800, 800 / 2);
 
     // adding the player;
-    this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, 'player');
+    this.player = this.physics.add.sprite(gameOptions.playerStartPosition, 600 / 2, 'player');
     this.player.setGravityY(gameOptions.playerGravity);
 
 
@@ -140,7 +140,7 @@ export default class GameScene extends Phaser.Scene {
       coin.visible = true;
       this.coinPool.remove(coin);
     } else {
-      coin = this.physics.add.image(posX, game.config.height * 0.7, 'coin');
+      coin = this.physics.add.image(posX, 600 * 0.7, 'coin');
       coin.setVelocityX(gameOptions.platformStartSpeed * -1);
       this.coinGroup.add(coin);
     }
@@ -155,7 +155,7 @@ export default class GameScene extends Phaser.Scene {
       platform.visible = true;
       this.platformPool.remove(platform);
     } else {
-      platform = this.physics.add.sprite(posX, game.config.height * 0.8, 'platform');
+      platform = this.physics.add.sprite(posX, 600 * 0.8, 'platform');
       platform.setImmovable(true);
       platform.setVelocityX(gameOptions.platformStartSpeed * -1);
       this.platformGroup.add(platform);
@@ -183,15 +183,15 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     // game over
-    if (this.player.y > game.config.height) {
+    if (this.player.y > 600) {
       this.scene.start('Submit', this.score);
     }
     this.player.x = gameOptions.playerStartPosition;
 
     // recycling platforms
-    let minDistance = game.config.width;
+    let minDistance = 800;
     this.platformGroup.getChildren().forEach(function (platform) {
-      const platformDistance = game.config.width - platform.x - platform.displayWidth / 2;
+      const platformDistance = 800 - platform.x - platform.displayWidth / 2;
       minDistance = Math.min(minDistance, platformDistance);
       if (platform.x < -platform.displayWidth / 2) {
         this.platformGroup.killAndHide(platform);
@@ -210,7 +210,7 @@ export default class GameScene extends Phaser.Scene {
     // adding new platforms
     if (minDistance > this.nextPlatformDistance) {
       const nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0], gameOptions.platformSizeRange[1]);
-      this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2);
+      this.addPlatform(nextPlatformWidth, 800 + nextPlatformWidth / 2);
     }
   }
 }

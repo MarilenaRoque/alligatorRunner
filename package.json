@@ -7,10 +7,15 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "6",
+    "babel-eslint": "10.1.x",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.7.0",
     "es-dev-server": "^1.57.8",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
     "jest": "^26.6.3",
+    "jest-canvas-mock": "^2.3.0",
     "webpack": "^3.0.0"
   },
   "dependencies": {
