@@ -43,7 +43,7 @@ export default class SubmitScore extends Phaser.Scene {
     let inputEl = this.add.dom(400, 400, inputText);
     
     let text = document.createElement('h2');
-    text.innerText = 'Enter with a Username and press Enter to Submit';
+    text.innerText = 'Provide your Username press Enter and Wait to Submit';
     text.id = 'text';
     let domElement = this.add.dom(400, 520, text);
     this.input.keyboard.on('keydown-' + 'ENTER', submitInfo, this);

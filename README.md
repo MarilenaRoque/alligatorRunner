@@ -7,7 +7,7 @@
 
 ### You can access a Live Demo [HERE](https://raw.githack.com/MarilenaRoque/ToDoList/feature/app/dist/index.html)
 
-![Screenshot](./src/images/screenshot.png)
+![Screenshot](./assets/screenshot.png)
 
 ## Features
 

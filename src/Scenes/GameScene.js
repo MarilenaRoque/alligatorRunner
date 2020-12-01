@@ -120,6 +120,11 @@ export default class GameScene extends Phaser.Scene {
             fontSize: '32px',
             fill: '#000'
         });
+
+        this.creditText = this.add.text(480, 570, 'Made with ♥ by Mari Roque Developer', {
+            fontSize: '15px',
+            fill: '#000'
+        });
         
     }
 

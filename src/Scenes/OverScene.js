@@ -5,9 +5,9 @@ import leaderboard from '../leaderboard';
 
 let url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/SltkTgE89OcOt0kPoJmn/scores/`
 
-export default class LeaderboardScene extends Phaser.Scene {
+export default class OverScene extends Phaser.Scene {
   constructor () {
-    super('LeaderBoard');
+    super('Over');
   }
 
   preload () {
