@@ -16,7 +16,8 @@ const leaderboard = (() => {
       method: 'POST',
       body,
     });
-    const jsonData = promiseAddScore.then((response) => response.json());
+    let data = promiseAddScore.then((response) => response.json());
+    console.log(data);
     return promiseAddScore;
   };
 
