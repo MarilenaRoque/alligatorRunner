@@ -25,6 +25,8 @@ export default class InstructionsScene extends Phaser.Scene {
     create() {
       this.add.image(400, 100, 'keyboard');
 
+      
+
       this.line1Text = this.add.text(16, 196, line1, {
         fontSize: '27px',
         fill: '#fff'
@@ -47,9 +49,9 @@ export default class InstructionsScene extends Phaser.Scene {
         fill: '#fff'
       });
   
+      
       this.playButton = new Button(this, 300, 500, 'blueButton1', 'blueButton2', 'Play', 'Game');
       this.menuButton = new Button(this, 550, 500, 'blueButton1', 'blueButton2', 'Menu', 'Title');
-      
       
       
     }

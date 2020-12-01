@@ -12,7 +12,9 @@ export default class SubmitScore extends Phaser.Scene {
 
   preload () {
     this.load.image('background', 'assets/background.png');
+    this.load.image('character', 'assets/over.png');
   }
+  
 
   create() {
     let name = '';
@@ -28,21 +30,22 @@ export default class SubmitScore extends Phaser.Scene {
             });
         } else {
             test.innerText = 'Name is too short';
-            let textTest = this.add.dom(400, 220, test);
+            let textTest = this.add.dom(400, 110, test);
         }
     }
 
     this.add.image(400, 300, 'background');
+    this.add.image(400, 300, 'character');
 
     let inputText = document.createElement('input');
     inputText.type = 'text';
     inputText.id = 'name';
-    let inputEl = this.add.dom(400, 200, inputText);
+    let inputEl = this.add.dom(400, 400, inputText);
     
     let text = document.createElement('h2');
     text.innerText = 'Enter with a Username and press Enter to Submit';
     text.id = 'text';
-    let domElement = this.add.dom(400, 300, text);
+    let domElement = this.add.dom(400, 520, text);
     this.input.keyboard.on('keydown-' + 'ENTER', submitInfo, this);
     
   }
