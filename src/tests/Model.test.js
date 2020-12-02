@@ -1,7 +1,9 @@
+
 import Model from '../Model';
 
 const newModel = new Model();
 
+/* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
 describe('Test Model creation', () => {
   it('Testing if model returns an object', () => {
     expect(typeof newModel).toBe('object');

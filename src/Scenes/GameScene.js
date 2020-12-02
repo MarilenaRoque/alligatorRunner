@@ -10,6 +10,8 @@ const gameOptions = {
   jumps: 2,
 };
 
+const credString = 'Made with ♥ by Mari Roque Developer';
+
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -107,7 +109,7 @@ export default class GameScene extends Phaser.Scene {
 
     // checking for input
     this.input.on('pointerdown', this.jump, this);
-    this.input.keyboard.on('keydown-' + 'SPACE', this.jump, this);
+    this.input.keyboard.on('keydown-SPACE', this.jump, this);
 
     // Creating display for Scores
     this.scoreText = this.add.text(16, 16, 'score: 0', {
@@ -115,7 +117,7 @@ export default class GameScene extends Phaser.Scene {
       fill: '#000',
     });
 
-    this.creditText = this.add.text(480, 570, 'Made with ♥ by Mari Roque Developer', {
+    this.creditText = this.add.text(480, 570, credString, {
       fontSize: '15px',
       fill: '#000',
     });
@@ -161,22 +163,25 @@ export default class GameScene extends Phaser.Scene {
       this.platformGroup.add(platform);
     }
     platform.displayWidth = platformWidth;
-    this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
+    this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0],
+      gameOptions.spawnRange[1]);
     const coinAppear = Phaser.Math.Between(0, 10);
     if (coinAppear > 5) {
       this.addCoin(posX);
     }
   }
 
-  // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
+  // the player jumps when on the ground, or once in the air as long as there are jumps
+  // left and the first jump was on the ground
   jump() {
-    if (this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)) {
+    if (this.player.body.touching.down || (this.playerJumps > 0
+       && this.playerJumps < gameOptions.jumps)) {
       if (this.player.body.touching.down) {
         this.playerJumps = 0;
       }
       this.player.anims.play('jump');
       this.player.setVelocityY(gameOptions.jumpForce * -1);
-      this.playerJumps++;
+      this.playerJumps += 1;
     }
   }
 
@@ -209,7 +214,8 @@ export default class GameScene extends Phaser.Scene {
 
     // adding new platforms
     if (minDistance > this.nextPlatformDistance) {
-      const nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0], gameOptions.platformSizeRange[1]);
+      const nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0],
+        gameOptions.platformSizeRange[1]);
       this.addPlatform(nextPlatformWidth, 800 + nextPlatformWidth / 2);
     }
   }

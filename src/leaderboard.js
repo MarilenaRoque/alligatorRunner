@@ -24,7 +24,8 @@ const leaderboard = (() => {
     const promiseRefreshScore = fetch(url, {
       mode: 'cors',
     });
-    const leaderboardDiv = promiseRefreshScore.then((response) => response.json()).then((response) => {
+    const fetchPromise = promiseRefreshScore.then((response) => response.json());
+    const leaderboardDiv = fetchPromise.then((response) => {
       const sorted = response.result.sort((a, b) => {
         if (a.score < b.score) {
           return 1;

@@ -25,7 +25,7 @@ export default class SubmitScore extends Phaser.Scene {
       name = document.getElementById('name').value;
       if (name.length >= 5) {
         const result = leaderboard.addScore(name, this.score);
-        result.then((data) => {
+        result.then(() => {
           this.scene.start('Over');
         });
       } else {

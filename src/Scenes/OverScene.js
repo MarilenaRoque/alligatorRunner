@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import Button from '../Objects/Button';
 import leaderboard from '../leaderboard';
 
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/SltkTgE89OcOt0kPoJmn/scores/';
 
 export default class OverScene extends Phaser.Scene {
   constructor() {
