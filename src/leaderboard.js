@@ -35,8 +35,8 @@ const leaderboard = (() => {
         }
         return 0;
       });
-      return sorted.slice(0,6);
-    })
+      return sorted.slice(0, 6);
+    });
     return topArray;
   };
 

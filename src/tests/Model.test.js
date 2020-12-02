@@ -1,21 +1,20 @@
 
 import Model from '../Model';
-
 const newModel = new Model();
 
-/* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
+
 describe('Test Model creation', () => {
   it('Testing if model returns an object', () => {
     expect(typeof newModel).toBe('object');
   });
   it('Testing if that object have the right attributes', () => {
-    expect(newModel).toHaveProperty('_soundOn');
+    expect(newModel).toHaveProperty('soundOn');
   });
   it('Testing if that object have the right attributes', () => {
-    expect(newModel).toHaveProperty('_musicOn');
+    expect(newModel).toHaveProperty('musicOn');
   });
   it('Testing if that object have the right attributes', () => {
-    expect(newModel).toHaveProperty('_bgMusicPlaying');
+    expect(newModel).toHaveProperty('bgMusicPlaying');
   });
 });
 

@@ -20,7 +20,6 @@ export default class OverScene extends Phaser.Scene {
 
 
     const result = leaderboard.getInfo();
-    console.log(result);
     result.then((sorted) => {
       const arrayTop = sorted.slice(0, 6);
       const divLeaderboard = document.createElement('div');
