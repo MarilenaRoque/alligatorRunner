@@ -195,7 +195,7 @@ export default class GameScene extends Phaser.Scene {
 
     // recycling platforms
     let minDistance = 800;
-    this.platformGroup.getChildren().forEach(function (platform) {
+    this.platformGroup.getChildren().forEach((platform) => {
       const platformDistance = 800 - platform.x - platform.displayWidth / 2;
       minDistance = Math.min(minDistance, platformDistance);
       if (platform.x < -platform.displayWidth / 2) {

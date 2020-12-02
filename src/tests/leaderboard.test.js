@@ -1,14 +1,15 @@
 import leaderboard from '../leaderboard';
-const array = [{score: 10, user: 'Marilena'}, 
-{score: 10, user: 'Marilena'}, 
-{score: 10, user: 'Marilena'},
-{score: 10, user: 'Marilena'},
-{score: 10, user: 'Marilena'},
-{score: 10, user: 'Marilena'}];
+
+const array = [{ score: 10, user: 'Marilena' },
+  { score: 10, user: 'Marilena' },
+  { score: 10, user: 'Marilena' },
+  { score: 10, user: 'Marilena' },
+  { score: 10, user: 'Marilena' },
+  { score: 10, user: 'Marilena' }];
 
 leaderboard.getInfo = jest.fn().mockImplementationOnce(() => {
   const result = Promise.resolve(array);
-  return result
+  return result;
 });
 
 describe('Test add score response', () => {
