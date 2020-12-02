@@ -20,7 +20,17 @@ export default class OverScene extends Phaser.Scene {
 
 
     const result = leaderboard.getInfo();
-    result.then((leaderboardDiv) => {
+    console.log(result);
+    result.then((sorted) => {
+      const arrayTop = sorted.slice(0, 6);
+      const divLeaderboard = document.createElement('div');
+      arrayTop.forEach((score, index) => {
+        const p = document.createElement('p');
+        p.innerText = `#${index + 1} - ${score.user}  ................. ${score.score}`;
+        divLeaderboard.appendChild(p);
+      });
+      return divLeaderboard;
+    }).then((leaderboardDiv) => {
       this.add.dom(400, 220, leaderboardDiv);
     });
   }

@@ -25,7 +25,7 @@ const leaderboard = (() => {
       mode: 'cors',
     });
     const fetchPromise = promiseRefreshScore.then((response) => response.json());
-    const leaderboardDiv = fetchPromise.then((response) => {
+    const topArray = fetchPromise.then((response) => {
       const sorted = response.result.sort((a, b) => {
         if (a.score < b.score) {
           return 1;
@@ -35,18 +35,9 @@ const leaderboard = (() => {
         }
         return 0;
       });
-      return sorted;
-    }).then((sorted) => {
-      const arrayTop = sorted.slice(0, 6);
-      const divLeaderboard = document.createElement('div');
-      arrayTop.forEach((score, index) => {
-        const p = document.createElement('p');
-        p.innerText = `#${index + 1} - ${score.user}  ................. ${score.score}`;
-        divLeaderboard.appendChild(p);
-      });
-      return divLeaderboard;
-    });
-    return leaderboardDiv;
+      return sorted.slice(0,6);
+    })
+    return topArray;
   };
 
 

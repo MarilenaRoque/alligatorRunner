@@ -7,3 +7,4 @@ describe('Test add score response', () => {
     expect(typeof result).toBe('object');
   });
 });
+
