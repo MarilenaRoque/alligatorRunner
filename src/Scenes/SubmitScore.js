@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import leaderboard from '../leaderboard';
 
+
+
 export default class SubmitScore extends Phaser.Scene {
   init(data) {
     this.score = data;
@@ -44,6 +46,12 @@ export default class SubmitScore extends Phaser.Scene {
         const result = leaderboard.addScore(name, this.score);
         result.then(() => {
           this.scene.start('Over');
+        }).catch( () => {
+          this.loadIcon.visible = false;
+          this.add.text(250, 200, "Sorry! Something went wrong :( ", {
+            fontSize: '20px',
+            fill: '#000',
+          });
         });
       } else {
         test.innerText = 'Name is too short';

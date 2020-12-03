@@ -16,8 +16,15 @@ const leaderboard = (() => {
       method: 'POST',
       body,
     });
-    promiseAddScore.then((response) => response.json());
-    return promiseAddScore;
+
+    const statusPromise = promiseAddScore.then((response) => { 
+      if(response.status === 200) {
+        return "Ok"
+      } else {
+        throw new Error('Something went wrong');
+      }
+    });
+    return statusPromise;
   };
 
   const getInfo = () => {
