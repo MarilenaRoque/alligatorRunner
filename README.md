@@ -3,7 +3,7 @@
 ### TSE WARNING: Since Yesterday the API responsible for the leaderboard is having downtimes, if you got a CORS error, please wait until the server works correctly.  
 
 
-> This is an RPG game developed with Phaser library. 
+> This is a platform game developed with Phaser library. 
 > At this game the main character has to jump through platforms collecting as many coins as possible.
 > For each coin collected the player increases his/her score.
 > In the end of the game, the user can submit his/her score and a leaderboard is displayed, with the top 6 scores.
