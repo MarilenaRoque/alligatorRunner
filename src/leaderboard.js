@@ -18,7 +18,7 @@ const leaderboard = (() => {
     });
 
     const statusPromise = promiseAddScore.then((response) => { 
-      if(response.status === 200) {
+      if(response.ok) {
         return "Ok"
       } else {
         throw new Error('Something went wrong');
