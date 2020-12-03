@@ -18,16 +18,6 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
-  preload() {
-    // load images
-    this.load.image('background', 'assets/background.png');
-    this.load.image('platform', 'assets/platform.png');
-    this.load.image('coin', 'assets/coin.png');
-    this.load.spritesheet('player', 'assets/player.png', {
-      frameWidth: 50,
-      frameHeight: 77,
-    });
-  }
 
   create() {
     this.add.image(400, 300, 'background');

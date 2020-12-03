@@ -12,16 +12,6 @@ export default class SubmitScore extends Phaser.Scene {
     super('Submit');
   }
 
-  preload() {
-    this.load.image('background', 'assets/background.png');
-    this.load.image('character', 'assets/over.png');
-     this.load.spritesheet('loadIcon', 'assets/load.png', {
-      frameWidth: 100,
-      frameHeight: 110,
-    });
-  }
-
-
   create() {
   
     let name = '';

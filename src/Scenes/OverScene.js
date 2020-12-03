@@ -8,9 +8,6 @@ export default class OverScene extends Phaser.Scene {
     super('Over');
   }
 
-  preload() {
-    this.load.image('background', 'assets/background.png');
-  }
 
   create() {
     this.add.image(400, 300, 'background');

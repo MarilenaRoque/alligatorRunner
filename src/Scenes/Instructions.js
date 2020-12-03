@@ -14,11 +14,6 @@ export default class InstructionsScene extends Phaser.Scene {
   }
 
 
-  preload() {
-    this.load.image('keyboard', 'assets/keys.png');
-  }
-
-
   create() {
     this.add.image(400, 100, 'keyboard');
 
