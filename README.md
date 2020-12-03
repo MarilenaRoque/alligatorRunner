@@ -4,15 +4,25 @@
 
 
 > This is a platform game developed with Phaser library. 
-> At this game the main character has to jump through platforms collecting as many coins as possible.
+> In this game the main character has to jump through platforms collecting as many coins as possible.
 > For each coin collected the player increases his/her score.
-> In the end of the game, the user can submit his/her score and a leaderboard is displayed, with the top 6 scores.
+> At the end of the game, the user can submit his/her score and a leaderboard is displayed, with the top 6 scores.
+
 
 
 
 ### You can access a Live Demo [HERE](https://frosty-torvalds-15d560.netlify.app/)
 
 ![Screenshot](./assets/logo.png)
+
+## How to Play
+
+![Screenshot](./assets/keys.png)
+
+- Use the 'SPACE' key or click with the left button of the mouse at the game display to make the alligator boy jump through the platforms.
+
+- The character should collect as many coins as possible without fall down.
+
 
 ## Elements
 
@@ -40,7 +50,7 @@
 
 ### Game Scene
 
-> Game Scene - Where the game actually starts. Platforms of different sizes are generated and also random amounts of coins. The user is able to make the character jump through the platforms using the 'SPACE' key or clicking with the left mouse button. Character is allowed to double jump, but no more than two jumps are allowed. Every time the character collects a coin (overlapping the coin) the Score is increased by 10 units and that should be displayed.
+> Game Scene - Where the game starts. Platforms of different sizes are generated and also random amounts of coins. The user can make the character jump through the platforms using the 'SPACE' key or clicking with the left mouse button. Character is allowed to double jump, but no more than two jumps are allowed. Every time the character collects a coin (overlapping the coin) the Score is increased by 10 units and that should be displayed.
 
 ![Screenshot](./assets/game.png)
 
@@ -52,7 +62,7 @@
 
 ### Leaderboard
 
-> Leaderboard Scene - After the score submission a leaderboard is displayed and if the last submission is at the top 6, it should be included. This scene contains 2 buttons where the user can choose between play again and come back to the main Menu.
+> Leaderboard Scene - After the score submission a leaderboard is displayed and if the last submission is at the top 6, it should be included. This scene contains 2 buttons where the user can choose between play again and come back to the main menu.
 
 ![Screenshot](./assets/leaderboard.png)
 
@@ -124,11 +134,11 @@ This project contains Built tests using jest. To run the tests on your local mac
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
 
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Show your support with a star if you like this project!
