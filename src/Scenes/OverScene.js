@@ -20,6 +20,12 @@ export default class OverScene extends Phaser.Scene {
 
 
     const result = leaderboard.getInfo();
+    result.catch((error) => {
+      this.add.text(250, 200, "Sorry! Something went wrong :( ", {
+        fontSize: '20px',
+        fill: '#000',
+      });
+    })
     result.then((sorted) => {
       const arrayTop = sorted.slice(0, 6);
       const divLeaderboard = document.createElement('div');

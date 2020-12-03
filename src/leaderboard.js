@@ -31,19 +31,25 @@ const leaderboard = (() => {
     const promiseRefreshScore = fetch(url, {
       mode: 'cors',
     });
-    const fetchPromise = promiseRefreshScore.then((response) => response.json());
+    const fetchPromise = promiseRefreshScore.then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Something went wrong');
+      }
+    } );
     const topArray = fetchPromise.then((response) => {
-      const sorted = response.result.sort((a, b) => {
-        if (a.score < b.score) {
-          return 1;
-        }
-        if (a.score > b.score) {
-          return -1;
-        }
-        return 0;
-      });
-      return sorted.slice(0, 6);
-    });
+        const sorted = response.result.sort((a, b) => {
+          if (a.score < b.score) {
+            return 1;
+          }
+          if (a.score > b.score) {
+            return -1;
+          }
+          return 0;
+        });
+        return sorted.slice(0, 6);
+    }).catch(() =>  { throw new Error('Something went wrong'); } );
     return topArray;
   };
 
