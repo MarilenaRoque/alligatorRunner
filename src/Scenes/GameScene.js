@@ -20,16 +20,16 @@ export default class GameScene extends Phaser.Scene {
 
 
   create() {
-    const { anims, physics } = this;
+    const { anims, physics, add } = this;
 
-    this.add.image(400, 300, 'background');
+    add.image(400, 300, 'background');
     this.score = 0;
 
 
     // Creating animations
     anims.create({
       key: 'run',
-      frames: this.anims.generateFrameNumbers('player', { start: 1, end: 4 }),
+      frames: anims.generateFrameNumbers('player', { start: 1, end: 4 }),
       frameRate: 10,
       repeat: -1,
     });
@@ -43,7 +43,7 @@ export default class GameScene extends Phaser.Scene {
 
     // /Platform Group and Pool//
 
-    this.platformGroup = this.add.group({
+    this.platformGroup = add.group({
 
       // once a platform is removed, it's added to the pool
       removeCallback(platform) {
@@ -51,7 +51,7 @@ export default class GameScene extends Phaser.Scene {
       },
     });
 
-    this.platformPool = this.add.group({
+    this.platformPool = add.group({
 
       // once a platform is removed from the pool, it's added to the active platforms group
       removeCallback(platform) {
@@ -62,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
 
     // COIN GROUP AND POOL //
 
-    this.coinGroup = this.add.group({
+    this.coinGroup = add.group({
 
       // once a coin is removed, it's added to the pool
       removeCallback(coin) {
@@ -70,7 +70,7 @@ export default class GameScene extends Phaser.Scene {
       },
     });
 
-    this.coinPool = this.add.group({
+    this.coinPool = add.group({
 
       // once a coin is removed from the pool, it's added to the active coins group
       removeCallback(coin) {
@@ -104,12 +104,12 @@ export default class GameScene extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE', this.jump, this);
 
     // Creating display for Scores
-    this.scoreText = this.add.text(16, 16, 'score: 0', {
+    this.scoreText = add.text(16, 16, 'score: 0', {
       fontSize: '32px',
       fill: '#000',
     });
 
-    this.creditText = this.add.text(480, 570, credString, {
+    this.creditText = add.text(480, 570, credString, {
       fontSize: '15px',
       fill: '#000',
     });
