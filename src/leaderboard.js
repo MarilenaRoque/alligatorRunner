@@ -1,4 +1,4 @@
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/SltkTgE89OcOt0kPoJmn/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/4gmHINI4aWAKRee5MMme/scores/';
 const fetch = require('node-fetch');
 
 
@@ -43,11 +43,13 @@ const leaderboard = (() => {
           if (a.score < b.score) {
             return 1;
           }
-          if (a.score > b.score) {
+          else if (a.score > b.score) {
             return -1;
+          } else if (a.score === b.score) {
+            return 0;
           }
-          return 0;
         });
+        console.log(sorted);
         return sorted.slice(0, 6);
     }).catch(() =>  { throw new Error('Something went wrong'); } );
     return topArray;

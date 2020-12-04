@@ -11,6 +11,9 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
+
+    const { load } = this;
+
     // add logo image
     this.add.image(400, 150, 'logo');
 
@@ -56,7 +59,7 @@ export default class PreloaderScene extends Phaser.Scene {
     assetText.setOrigin(0.5, 0.5);
 
     // update progress bar
-    this.load.on('progress', (value) => {
+    load.on('progress', (value) => {
       percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
@@ -64,12 +67,12 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     // update file progress text
-    this.load.on('fileprogress', (file) => {
+    load.on('fileprogress', (file) => {
       assetText.setText(`Loading asset: ${file.key}`);
     });
 
     // remove progress bar when complete
-    this.load.on('complete', () => {
+    load.on('complete', () => {
       progressBar.destroy();
       progressBox.destroy();
       loadingText.destroy();
@@ -81,27 +84,27 @@ export default class PreloaderScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     // load assets needed in our game
-    this.load.image('background', 'assets/background.png');
-    this.load.image('blueButton1', 'assets/ui/blue_button02.png');
-    this.load.image('blueButton2', 'assets/ui/blue_button03.png');
-    this.load.image('phaserLogo', 'assets/logo.png');
-    this.load.image('box', 'assets/ui/grey_box.png');
-    this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
-    this.load.audio('bgMusic', ['assets/TownTheme.mp3']);
-    this.load.image('background', 'assets/background.png');
-    this.load.image('character', 'assets/over.png');
-     this.load.spritesheet('loadIcon', 'assets/load.png', {
+    load.image('background', 'assets/background.png');
+    load.image('blueButton1', 'assets/ui/blue_button02.png');
+    load.image('blueButton2', 'assets/ui/blue_button03.png');
+    load.image('phaserLogo', 'assets/logo.png');
+    load.image('box', 'assets/ui/grey_box.png');
+    load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
+    load.audio('bgMusic', ['assets/TownTheme.mp3']);
+    load.image('background', 'assets/background.png');
+    load.image('character', 'assets/over.png');
+     load.spritesheet('loadIcon', 'assets/load.png', {
       frameWidth: 100,
       frameHeight: 110,
     });
-    this.load.image('background', 'assets/background.png');
-    this.load.image('platform', 'assets/platform.png');
-    this.load.image('coin', 'assets/coin.png');
-    this.load.spritesheet('player', 'assets/player.png', {
+    load.image('background', 'assets/background.png');
+    load.image('platform', 'assets/platform.png');
+    load.image('coin', 'assets/coin.png');
+    load.spritesheet('player', 'assets/player.png', {
       frameWidth: 50,
       frameHeight: 77,
     });
-    this.load.image('keyboard', 'assets/keys.png');
+    load.image('keyboard', 'assets/keys.png');
   }
 
   ready() {
