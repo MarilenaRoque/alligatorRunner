@@ -18,21 +18,25 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
+  
+
 
   create() {
+    const { anims, physics } = this;
+
     this.add.image(400, 300, 'background');
     this.score = 0;
-
+     
 
     // Creating animations
-    this.anims.create({
+    anims.create({
       key: 'run',
       frames: this.anims.generateFrameNumbers('player', { start: 1, end: 4 }),
       frameRate: 10,
       repeat: -1,
     });
 
-    this.anims.create({
+    anims.create({
       key: 'jump',
       frames: [{ key: 'player', frame: 0 }],
       frameRate: 20,
@@ -84,18 +88,18 @@ export default class GameScene extends Phaser.Scene {
     this.addPlatform(800, 800 / 2);
 
     // adding the player;
-    this.player = this.physics.add.sprite(gameOptions.playerStartPosition, 600 / 2, 'player');
+    this.player = physics.add.sprite(gameOptions.playerStartPosition, 600 / 2, 'player');
     this.player.setGravityY(gameOptions.playerGravity);
 
 
     // setting collisions between the player and the platform group
-    this.physics.add.collider(this.player, this.platformGroup, () => {
+    physics.add.collider(this.player, this.platformGroup, () => {
       if (!this.player.anims.isPlaying) {
         this.player.anims.play('run');
       }
     });
 
-    this.physics.add.overlap(this.player, this.coinGroup, this.collectStar, null, this);
+    physics.add.overlap(this.player, this.coinGroup, this.collectStar, null, this);
 
     // checking for input
     this.input.on('pointerdown', this.jump, this);
