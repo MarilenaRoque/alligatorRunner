@@ -18,15 +18,13 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
-  
-
 
   create() {
     const { anims, physics } = this;
 
     this.add.image(400, 300, 'background');
     this.score = 0;
-     
+
 
     // Creating animations
     anims.create({

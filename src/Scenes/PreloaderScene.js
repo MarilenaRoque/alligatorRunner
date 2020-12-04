@@ -11,7 +11,6 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-
     const { load } = this;
 
     // add logo image
@@ -93,7 +92,7 @@ export default class PreloaderScene extends Phaser.Scene {
     load.audio('bgMusic', ['assets/TownTheme.mp3']);
     load.image('background', 'assets/background.png');
     load.image('character', 'assets/over.png');
-     load.spritesheet('loadIcon', 'assets/load.png', {
+    load.spritesheet('loadIcon', 'assets/load.png', {
       frameWidth: 100,
       frameHeight: 110,
     });

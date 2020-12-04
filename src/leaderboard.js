@@ -17,12 +17,11 @@ const leaderboard = (() => {
       body,
     });
 
-    const statusPromise = promiseAddScore.then((response) => { 
-      if(response.ok) {
-        return "Ok"
-      } else {
-        throw new Error('Something went wrong');
+    const statusPromise = promiseAddScore.then((response) => {
+      if (response.ok) {
+        return 'Ok';
       }
+      throw new Error('Something went wrong');
     });
     return statusPromise;
   };
@@ -34,24 +33,21 @@ const leaderboard = (() => {
     const fetchPromise = promiseRefreshScore.then((response) => {
       if (response.ok) {
         return response.json();
-      } else {
-        throw new Error('Something went wrong');
       }
-    } );
+      throw new Error('Something went wrong');
+    });
     const topArray = fetchPromise.then((response) => {
-        const sorted = response.result.sort((a, b) => {
-          if (a.score < b.score) {
-            return 1;
-          }
-          else if (a.score > b.score) {
-            return -1;
-          } else if (a.score === b.score) {
-            return 0;
-          }
-        });
-        console.log(sorted);
-        return sorted.slice(0, 6);
-    }).catch(() =>  { throw new Error('Something went wrong'); } );
+      const sorted = response.result.sort((a, b) => {
+        if (a.score < b.score) {
+          return 1;
+        }
+        if (a.score > b.score) {
+          return -1;
+        }
+        return 0;
+      });
+      return sorted.slice(0, 6);
+    }).catch(() => { throw new Error('Something went wrong'); });
     return topArray;
   };
 

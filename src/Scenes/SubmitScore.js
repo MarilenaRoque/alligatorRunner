@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import leaderboard from '../leaderboard';
 
 
-
 export default class SubmitScore extends Phaser.Scene {
   init(data) {
     this.score = data;
@@ -13,7 +12,6 @@ export default class SubmitScore extends Phaser.Scene {
   }
 
   create() {
-  
     let name = '';
 
     // Creating Loading Animation
@@ -26,7 +24,6 @@ export default class SubmitScore extends Phaser.Scene {
 
 
     const submitInfo = () => {
-      
       const test = document.createElement('h4');
       name = document.getElementById('name').value;
       if (name.length >= 5) {
@@ -36,9 +33,9 @@ export default class SubmitScore extends Phaser.Scene {
         const result = leaderboard.addScore(name, this.score);
         result.then(() => {
           this.scene.start('Over');
-        }).catch( () => {
+        }).catch(() => {
           this.loadIcon.visible = false;
-          this.add.text(250, 200, "Sorry! Something went wrong :( ", {
+          this.add.text(250, 200, 'Sorry! Something went wrong :( ', {
             fontSize: '20px',
             fill: '#000',
           });
