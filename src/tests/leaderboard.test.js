@@ -12,12 +12,20 @@ leaderboard.getInfo = jest.fn().mockImplementationOnce(() => {
   return result;
 });
 
-describe('Test add score response', () => {
-  it('Testing fetch is working and respond with the right object', () => {
-    const result = leaderboard.addScore('Marilena', 10);
-    expect(typeof result).toBe('object');
-  });
+leaderboard.addScore = jest.fn().mockImplementationOnce((name, score) => {
+  let result = Promise.resolve({ ok: true})
+  return result;
 });
+
+
+describe('Test add score response', () => {
+  const success = leaderboard.addScore('Marilena', 10);
+  test('Test if return an object', () => success.then(data => {
+    expect(data.ok).toBeTruthy();
+  }));
+});
+
+
 
 describe('Testing get Info', () => {
   const result = leaderboard.getInfo();
