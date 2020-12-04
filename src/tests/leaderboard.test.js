@@ -12,8 +12,8 @@ leaderboard.getInfo = jest.fn().mockImplementationOnce(() => {
   return result;
 });
 
-leaderboard.addScore = jest.fn().mockImplementationOnce((name, score) => {
-  let result = Promise.resolve({ ok: true})
+leaderboard.addScore = jest.fn().mockImplementationOnce(() => {
+  const result = Promise.resolve({ ok: true });
   return result;
 });
 
@@ -24,7 +24,6 @@ describe('Test add score response', () => {
     expect(data.ok).toBeTruthy();
   }));
 });
-
 
 
 describe('Testing get Info', () => {
