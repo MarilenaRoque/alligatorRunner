@@ -1,0 +1,36 @@
+{
+  "name": "alligatorRunner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MarilenaRoque/alligatorRunner.git",
+  "author": "MarilenaRoque <marilenas@id.uff.br>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6",
+    "babel-eslint": "10.1.x",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "es-dev-server": "^1.57.8",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "jest": "^26.6.3",
+    "jest-canvas-mock": "^2.3.0",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x",
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "phaser": "^3.0.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "es-dev-server --app-index index.html --node-resolve --watch",
+    "watch": "webpack --watch",
+    "test": "jest",
+    "test-watch": "jest --watchAll"
+  }
+}
