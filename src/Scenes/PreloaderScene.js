@@ -89,7 +89,6 @@ export default class PreloaderScene extends Phaser.Scene {
     load.image('phaserLogo', 'assets/logo.png');
     load.image('box', 'assets/ui/grey_box.png');
     load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
-    load.audio('bgMusic', ['assets/TownTheme.mp3']);
     load.image('background', 'assets/background.png');
     load.image('character', 'assets/over.png');
     load.spritesheet('loadIcon', 'assets/load.png', {
@@ -104,6 +103,7 @@ export default class PreloaderScene extends Phaser.Scene {
       frameHeight: 77,
     });
     load.image('keyboard', 'assets/keys.png');
+    load.audio('bgMusic', ['assets/TownTheme.mp3']);
   }
 
   ready() {
