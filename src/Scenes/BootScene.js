@@ -11,7 +11,7 @@ export default class BootScene extends Phaser.Scene {
   }
 
   create() {
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+
     this.scene.start('Preloader');
   }
 }
