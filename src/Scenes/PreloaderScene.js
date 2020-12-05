@@ -80,8 +80,6 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
-
     // load assets needed in our game
     
     load.image('background', 'assets/background.png');

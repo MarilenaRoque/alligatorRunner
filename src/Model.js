@@ -1,8 +1,8 @@
 /* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
 export default class Model {
   constructor() {
-    this._soundOn = true;
-    this._musicOn = true;
+    this._soundOn = false;
+    this._musicOn = false;
     this._bgMusicPlaying = false;
   }
 
